@@ -20,5 +20,4 @@ response = client.chat.completions.create(
 )
 
 print("Respuesta recibida:\n")
-#print(response.choices[0].message.content)
 print("Respuestas: ", response)

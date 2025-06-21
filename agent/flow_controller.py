@@ -38,10 +38,8 @@ class FlowController:
 
             print(f"\nScore: {eval_result.get('score')}/10")
             print(f"Feedback: {eval_result.get('feedback')}")
-
             print("\n-------------------------------------------------")
             question_number += 1
 
         print("\nSession Summary:")
         self.memory.print_history()
-

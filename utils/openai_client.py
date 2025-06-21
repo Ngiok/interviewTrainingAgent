@@ -17,7 +17,6 @@ def evaluate_answer(question, ideal_answer, user_answer):
         "Respond in strict JSON format like: {\"score\": <int>, \"feedback\": \"<brief explanation>\"}. Do not include anything else."
     )
 
-
     try:
         response = client.chat.completions.create(
             model="gpt-4-turbo",
@@ -27,9 +26,8 @@ def evaluate_answer(question, ideal_answer, user_answer):
 
         raw = response.choices[0].message.content.strip()
 
-        # very basic JSON-safe eval
         if raw.startswith("{") and raw.endswith("}"):
-            return eval(raw)  # replace later with `json.loads`
+            return eval(raw)  #replace with `json.loads`
         else:
             return {"score": None, "feedback": raw}
 
