@@ -11,7 +11,6 @@ class SessionMemory:
             "feedback": feedback
         })
 
-
     def get_history(self):
         return self.history
 
@@ -24,4 +23,3 @@ class SessionMemory:
                 print(f"Score: {entry['score']}/10")
             if entry.get("feedback"):
                 print(f"Feedback: {entry['feedback']}")
-
