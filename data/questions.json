@@ -1,0 +1,18 @@
+[
+  {
+    "id": "q1",
+    "text": "What is a variable in programming?",
+    "category": "fundamentals",
+    "difficulty": "junior",
+    "ideal_answer": "A variable is a named memory location used to store data.",
+    "eval_method": "llm"
+  },
+  {
+    "id": "q2",
+    "text": "What is the difference between a process and a thread?",
+    "category": "concurrency",
+    "difficulty": "junior",
+    "ideal_answer": "A process is an independent program with its own memory, while a thread is a lightweight unit of execution within a process.",
+    "eval_method": "llm"
+  }
+]
