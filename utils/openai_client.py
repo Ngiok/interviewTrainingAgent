@@ -1,15 +1,17 @@
 import os
 from dotenv import load_dotenv
 from openai import OpenAI
+import json
 
 load_dotenv()
 api_key = os.getenv("OPENAI_API_KEY")
 
 client = OpenAI(api_key=api_key)
 
-def evaluate_answer(question, ideal_answer, user_answer):
+def evaluate_answer(question, ideal_answer, user_answer, language="en"):
     prompt = (
         "You are an expert in software engineering helping a junior programmer prepare for future technical interviews.\n\n"
+        f"Please respond in {language}.\n\n"
         f"Question: {question}\n"
         f"Ideal answer: {ideal_answer}\n"
         f"Candidate's answer: {user_answer}\n\n"
@@ -27,9 +29,14 @@ def evaluate_answer(question, ideal_answer, user_answer):
         raw = response.choices[0].message.content.strip()
 
         if raw.startswith("{") and raw.endswith("}"):
-            return eval(raw)  #replace with `json.loads`
+            try:
+                result = json.loads(raw)
+            except json.JSONDecodeError:
+                result = {"score": None, "feedback": "Invalid JSON format."}
         else:
-            return {"score": None, "feedback": raw}
+            result = {"score": None, "feedback": raw}
+
+        return result
 
     except Exception as e:
         print(f"[ERROR] Failed to evaluate answer: {e}")

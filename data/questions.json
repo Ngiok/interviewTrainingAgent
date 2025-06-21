@@ -1,7 +1,12 @@
 [
   {
     "id": "q1",
-    "text": "What is a variable in programming?",
+    "text": {
+      "en": "What is a variable in programming?",
+      "es": "¿Qué es una variable en programación?",
+      "fr": "Qu'est-ce qu'une variable en programmation ?",
+      "it": "Che cos'è una variabile nella programmazione?"
+    },
     "category": "fundamentals",
     "difficulty": "junior",
     "ideal_answer": "A variable is a named memory location used to store data.",
@@ -9,7 +14,12 @@
   },
   {
     "id": "q3",
-    "text": "What are the main HTTP verbs?",
+    "text": {
+      "en": "What are the main HTTP verbs?",
+      "es": "¿Cuáles son los principales verbos HTTP?",
+      "fr": "Quels sont les principaux verbes HTTP ?",
+      "it": "Quali sono i principali verbi HTTP?"
+    },
     "category": "fundamentals",
     "difficulty": "junior",
     "ideal_answer": "GET, POST, PATCH, PUT, DELETE, HEAD, OPTIONS",
@@ -17,7 +27,12 @@
   },
   {
     "id": "q2",
-    "text": "What is the difference between a process and a thread?",
+    "text": {
+      "en": "What is the difference between a process and a thread?",
+      "es": "¿Cuál es la diferencia entre un proceso y un hilo?",
+      "fr": "Quelle est la différence entre un processus et un thread ?",
+      "it": "Qual è la differenza tra un processo e un thread?"
+    },
     "category": "concurrency",
     "difficulty": "junior",
     "ideal_answer": "A process is an independent program with its own memory, while a thread is a lightweight unit of execution within a process.",

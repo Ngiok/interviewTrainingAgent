@@ -1,15 +1,21 @@
 import json
 
 class QuestionBank:
-    def __init__(self, filepath="data/questions.json"):
+    def __init__(self, filepath, category=None, difficulty=None):
         self.questions = []
         self.index = 0
-        self.load_questions(filepath)
+        self.load_questions(filepath, category, difficulty)
 
-    def load_questions(self, filepath):
+    def load_questions(self, filepath, category, difficulty):
         try:
             with open(filepath, "r", encoding="utf-8") as f:
-                self.questions = json.load(f)
+                all_questions = json.load(f)
+
+            self.questions = [
+                q for q in all_questions
+                if (not category or q["category"] == category) and
+                   (not difficulty or q["difficulty"] == difficulty)
+            ]
         except Exception as e:
             print(f"[ERROR] Failed to load questions: {e}")
             self.questions = []
