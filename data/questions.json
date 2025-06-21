@@ -8,6 +8,14 @@
     "eval_method": "llm"
   },
   {
+    "id": "q3",
+    "text": "What are the main HTTP verbs?",
+    "category": "fundamentals",
+    "difficulty": "junior",
+    "ideal_answer": "GET, POST, PATCH, PUT, DELETE, HEAD, OPTIONS",
+    "eval_method": "llm"
+  },
+  {
     "id": "q2",
     "text": "What is the difference between a process and a thread?",
     "category": "concurrency",
