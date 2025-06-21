@@ -1,5 +1,6 @@
 # interviewTrainingAgent
 
-1) source .venv/Scripts/activate
-2) pip install -r requirements.txt
-3) py aplication.py
+1) python -m venv .venv
+2) source .venv/Scripts/activate
+3) pip install -r requirements.txt
+4) python main.py
