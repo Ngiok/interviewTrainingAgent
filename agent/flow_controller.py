@@ -3,9 +3,14 @@ from agent.memory import SessionMemory
 from utils.openai_client import evaluate_answer
 
 class FlowController:
-    def __init__(self):
-        self.qbank = QuestionBank()
+    def __init__(self, language="en", difficulty="junior", category="fundamentals"):
+        self.language = language
         self.memory = SessionMemory()
+        self.qbank = QuestionBank(
+            filepath="data/questions.json",
+            category=category,
+            difficulty=difficulty
+        )
 
     def start_interview(self):
         print("\n=== Welcome to your technical interview practice ===")
@@ -19,13 +24,16 @@ class FlowController:
                 print("\nInterview session complete.")
                 break
                 
-            print(f"\nQuestion {question_number}: {question['text']}")
+            question_text = question["text"].get(self.language, question["text"]["en"])
+            print(f"\nQuestion {question_number}: {question_text}")
+
             user_answer = input("Your answer: ").strip()
 
             eval_result = evaluate_answer(
                 question=question["text"],
                 ideal_answer=question["ideal_answer"],
-                user_answer=user_answer
+                user_answer=user_answer,
+                language=self.language
             )
 
             self.memory.record(
